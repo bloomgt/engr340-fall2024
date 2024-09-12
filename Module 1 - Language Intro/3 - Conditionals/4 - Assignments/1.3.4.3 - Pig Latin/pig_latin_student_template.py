@@ -1,7 +1,7 @@
 # helpful function to see if word starts with vowel
 def starts_with_vowel(word):
     """
-    Return True if the work starts with a vowel, False otherwise
+    Return True if the word starts with a vowel, False otherwise
     :param word: A word as a string
     :return: Whether the word begins with a vowel
     """
@@ -10,8 +10,7 @@ def starts_with_vowel(word):
     word = word.lower()
 
     # check all combinations
-    if word[0] == 'a' or word[0] == 'e' \
-            or word[0] == 'i' or word[0] == 'o' or word[0] == 'u':
+    if word[0] == 'a' or word[0] == 'e' or word[0] == 'i' or word[0] == 'o' or word[0] == 'u':
         return True
     else:
         return False
@@ -36,19 +35,22 @@ for word in words:
     # word is too short. Do nothing.
     if len(word) < 3:
         # place the word in the pig_latin list
-        ### your code here ###
+        pig_latin.append(word)
         continue
 
     # starts with vowel, modify accordingly and put in list
     elif starts_with_vowel(word) == True:
         # modify the word and place in pig_latin list
-        ### your code here ###
+        newword = word + "vay"
+        pig_latin.append(newword)
         continue
 
     # starts with consonant, modify accordingly  and put in list
     else:
         # modify word and place in pig_latin list
-        ### your code here ###
+        firstletter = word[0]
+        newword = word[1:]+ firstletter + "ay"
+        pig_latin.append(newword)
         continue
 
 # a new sentence in which you will re-assemble each of the modified words

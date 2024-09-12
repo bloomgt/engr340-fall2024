@@ -10,6 +10,14 @@ Note: this problem does not require the "compounding interest" formula from the 
 
 ### Your code here ###
 
-in_state_gift = 0
+inStateCost = 30792
+outStateCost = 47882
 
-out_state_gift = 0
+rate = 5/100
+
+in_state_gift = inStateCost / rate
+
+out_state_gift = outStateCost / rate
+
+print(in_state_gift)
+print(out_state_gift)

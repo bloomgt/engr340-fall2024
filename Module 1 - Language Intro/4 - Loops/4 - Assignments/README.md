@@ -1,6 +1,6 @@
 **4.4.1 - Estimating PI**
 
-Use the [Gauss–Legendre_algorithm](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm) to estimate the value of PI. 
+Use the [Gauss–Legendre_algorithm](******https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm**) to estimate the value of PI. 
 The program should generally follow the steps in the Wikipedia article.
 
 Step 1: Declare/set the initial values for a0, b0, t0, and p0

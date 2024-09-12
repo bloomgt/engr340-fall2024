@@ -29,3 +29,12 @@ num_evens = 0
 num_odds = 0
 
 ### YOUR CODE BEGINS HERE ###
+for element in nums:
+    if (element % 2) == 0:
+        num_evens = num_evens + 1
+
+    else:
+        num_odds = num_odds + 1
+
+print("Even Count:", num_evens)
+print("Odd Count:", num_odds)

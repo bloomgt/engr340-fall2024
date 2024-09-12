@@ -10,12 +10,38 @@ that time, it appears this investment has not worked out. If Elon has instead bo
 would his investment be worth in 10-year and 20-year bonds? Assume the 10-year bonds pay 3.96%,
 the 20-year bonds pay 4.32%, with each compounding annually.
 """
+from ftplib import print_line
 
 ### all your code below ###
 
+# Initial Amount
+P = 33000000000
+#Interest Rates
+ten_year_rate = 3.96 / 100
+twenty_year_rate = 4.32 / 100
+#Number of Years
+n_ten = 10.0
+n_twenty = 20.0
+
+#calculations
+
+ten_year_growth = P*((1+ten_year_rate)**n_ten)
+
+twenty_year_growth = P*((1+twenty_year_rate)**n_twenty)
 
 # final answer for 10-year
-ten_year_final = None
+ten_year_final = ten_year_growth
 
 # final answer for 20-year
-twenty_year_final = None
+twenty_year_final = twenty_year_growth
+
+print('')
+print('With 10 Year Bond: ')
+print('Investment  =  $', round(ten_year_final, 2), ' =  $', round(ten_year_final / 1000000000, 2), 'Billion')
+print('Profit  =  $', round(ten_year_final - P, 2), ' =  $', round((ten_year_final - P) / 1000000000, 2), 'Billion')
+print('')
+print('With 20 Year Bond:')
+print('Investment  =  $', round(twenty_year_final, 2), ' =  $' , round(twenty_year_final / 1000000000, 2), 'Billion')
+print('Profit  =  $', round(twenty_year_final - P, 2), ' =  $' , round((twenty_year_final - P ) / 1000000000 , 2), 'Billion')
+
+

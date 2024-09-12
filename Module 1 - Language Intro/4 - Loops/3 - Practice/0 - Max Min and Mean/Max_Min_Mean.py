@@ -15,15 +15,30 @@ list_average = -1
 # allowed though, that'd be too easy.
 
 
-# First Loop Here:
+avgsum = 0
+numcount = 0
+min_init = False
+
+for element in list_one:
+
+    avgsum += element
+    numcount = len(list_one)
+    list_average = avgsum / numcount
+
+    if element > list_max:
+        list_max = element
+
+    if min_init == False and element > 0:
+        list_min = element
+        min_init = True
+
+    if min_init == True and element < list_min:
+        list_min = element
 
 
-# Second Loop Here:
-
-
-# Third Loop Here:
-
-
+print("max =", list_max)
+print("min =", list_min)
+print("average =", list_average)
 
 
 

@@ -3,6 +3,8 @@
 # previous variable in the subsequent calculation.
 # use the print function under the variables to make sure they're right
 
+import math
+
 # Here are the variables to use: DO NOT CHANGE THESE
 principal = 1000  # initial amount to be deposited
 rate = 1  # interest rate applied to deposit (will be divided by 100)
@@ -13,16 +15,17 @@ n = 10  # number of years to compound deposit
 
 
 # Step One: Divide Rate by 100
-step_one = None
+step_one = rate/100
 
 # Step Two: Add One to the step_one, then raise it the nth power
-step_two = None
+step_two = math.pow(1 + step_one, n)
 
 # Step Three: Multiply the step_two by the Principal
-step_three = None
+step_three = principal*step_two
 
 # step_three should be around 1105, use a print statement to check:
 
+print(step_three)
 
 # ----------------------------------------------------------------------------------------------------------------------
 
