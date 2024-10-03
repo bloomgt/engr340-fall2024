@@ -1,4 +1,6 @@
 import sys
+import pandas as pd
+import numpy as np
 
 
 def parse_nyt_data(file_path=''):
@@ -67,6 +69,13 @@ def first_question(data):
     """
 
     # your code here
+
+    df = pd.DataFrame(data)
+
+    Rockingham = df[df['county'] == 'Rockingham']
+
+    print(Rockingham)
+
     return
 
 def second_question(data):
@@ -90,8 +99,8 @@ def third_question(data):
 if __name__ == "__main__":
     data = parse_nyt_data('us-counties.csv')
 
-    for (date, county, state, cases, deaths) in data:
-        print('On ', date, ' in ', county, ' ', state, ' there were ', cases, ' cases and ', deaths, ' deaths')
+    #for (date, county, state, cases, deaths) in data:
+        #print('On ', date, ' in ', county, ' ', state, ' there were ', cases, ' cases and ', deaths, ' deaths')
 
 
     # write code to address the following question: Use print() to display your responses.
