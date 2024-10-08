@@ -67,14 +67,13 @@ def first_question(data):
     # When was the first positive COVID case in Harrisonburg?
     :return:
     """
-
     # your code here
+    # Use pandas to extract Rockingham county data
+    df = pd.DataFrame(data, columns = ['date','county', 'state', 'fips', 'cases', 'deaths'])
 
-    df = pd.DataFrame(data)
+    county = df['county']
 
-    Rockingham = df[df['county'] == 'Rockingham']
-
-    print(Rockingham)
+    print(county)
 
     return
 

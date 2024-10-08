@@ -1,3 +1,5 @@
+from operator import truediv
+
 import numpy as np
 from scipy.stats import ttest_1samp, norm, ttest_ind
 
@@ -30,11 +32,29 @@ def one_sided_tests(_files: list, _mean: float, _alpha: float, _less_than: bool)
     :param _less_than: If true, then a left-sided (<) t-test is performed. Otherwise, a right-sided test (>)
     :return: A list of files where the null hypothesis is rejected
     """
-
     # list of files that are out of spec
     reject_null_hypothesis = []
 
     # YOUR CODE HERE #
+    # Step 0: Open file and extract data using numpy
+
+    for element in _files:
+        list = np.loadtxt(element)
+
+        if _less_than == True:
+            side = 'less'
+        else:
+            side = 'greater'
+
+        # Step 1: Perform T-Test using provided list, mean, alpha, and boolean condition
+        (stat, p_value) = ttest_1samp(list, popmean=_mean, alternative=side)
+         # Step 2: Write If Else statement to compare p-Value to alpha. Append file name to list of reject null hypothesis
+        if p_value < _alpha:
+            print('Reject H0: sample means and population means are not equal!')
+            reject_null_hypothesis.append(element)
+
+        else:
+            print('Accept H0: sample means and population means are equivalent')
 
     # return samples that were rejected
     return reject_null_hypothesis

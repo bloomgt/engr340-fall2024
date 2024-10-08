@@ -132,7 +132,7 @@ mean = yield_strength.mean()
 stdev = yield_strength.std()
 
 # Note: ALPHA parameter has been depreciated as of scipy 1.10.0. May throw warning.
-(lower_ci, upper_ci) = norm.interval(alpha=0.95, loc=mean, scale=stdev)
+(lower_ci, upper_ci) = norm.interval(confidence=0.95, loc=mean, scale=stdev)
 
 # print out the results
 print('For the 1045CR. The 95% confidence interval on yield strength is: (', lower_ci, ",", upper_ci, ")")
