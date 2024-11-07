@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy
 
 """
 Step 0: Select which database you wish to use.
@@ -29,13 +30,26 @@ voltage = data[2:,2]
 Step 2: (OPTIONAL) pass data through LOW PASS FILTER (fs=250Hz, fc=15, N=6). These may not be correctly in radians
 """
 
-## YOUR CODE HERE ##
+fs = 250  # Sampling frequency
+fc = 15   # Cutoff frequency (Hz)
+n = 6     # Filter order
+
+# Normalize cutoff frequency to Nyquist frequency (fs/2)
+nyquist = 0.5 * fs
+normal_cutoff = fc / nyquist
+
+# Generate Butterworth filter coefficients
+b, a = scipy.signal.butter(n, normal_cutoff, btype="low", analog=False)
+
+# Apply filter to the voltage data
+butter_data = scipy.signal.filtfilt(b, a, voltage)
 
 """
+
 Step 3: Pass data through weighted differentiator
 """
-diff_conv = [1,-1]
-diffs = np.convolve(voltage,diff_conv)
+
+diffs = np.diff(butter_data)
 
 """
 Step 4: Square the results of the previous step
@@ -54,5 +68,5 @@ moving_average = np.convolve(voltage, window)
 
 # make a plot of the results. Can change the plot() parameter below to show different intermediate signals
 plt.title('Process Signal for ' + database_name)
-plt.plot(time[len(norm_data)], norm_data)
+plt.plot(time[:len(norm_data)], norm_data)
 plt.show()
